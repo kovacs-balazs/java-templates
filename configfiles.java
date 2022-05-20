@@ -23,7 +23,7 @@ public static void saveName() {
     File files = new File(m.getDataFolder(), "name.yml");
     YamlConfiguration config = YamlConfiguration.loadConfiguration(files);
     try {
-        files.save(cfg);
+        file.save(cfg);
     } catch (IOException e) {
         System.out.println("Can't save language file");
     }
