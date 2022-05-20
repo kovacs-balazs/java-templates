@@ -1,34 +1,34 @@
-private static File namecfg;
-private static FileConfiguration namefile;
+private static File cfg;
+private static FileConfiguration file;
 
 public static Main m = Main.getPlugin(Main.class);
 
 public static void setup() {
-    namecfg = new File(m.getDataFolder(), "name.yml"); //
-    if(!namecfg.exists()) {
+    cfg = new File(m.getDataFolder(), "name.yml"); //
+    if(!cfg.exists()) {
         try {
-            namecfg.createNewFile();
+            cfg.createNewFile();
         } catch (IOException e) {
             // owww
         }
     }
-    namefile = YamlConfiguration.loadConfiguration(namecfg);
+    file = YamlConfiguration.loadConfiguration(cfg);
 }
 
 public static FileConfiguration getName() {
-    return namefile;
+    return file;
 }
 
 public static void saveName() {
     File file = new File(m.getDataFolder(), "name.yml");
     YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
     try {
-        namefile.save(namecfg);
+        file.save(cfg);
     } catch (IOException e) {
         System.out.println("Can't save language file");
     }
 }
 
 public static void reloadName() {
-    namefile = YamlConfiguration.loadConfiguration(namecfg);
+    file = YamlConfiguration.loadConfiguration(cfg);
 }
