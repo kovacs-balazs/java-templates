@@ -20,10 +20,10 @@ public static FileConfiguration getName() {
 }
 
 public static void saveName() {
-    File file = new File(m.getDataFolder(), "name.yml");
-    YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
+    File files = new File(m.getDataFolder(), "name.yml");
+    YamlConfiguration config = YamlConfiguration.loadConfiguration(files);
     try {
-        file.save(cfg);
+        files.save(cfg);
     } catch (IOException e) {
         System.out.println("Can't save language file");
     }
