@@ -20,8 +20,6 @@ public static FileConfiguration getName() {
 }
 
 public static void saveName() {
-    File files = new File(m.getDataFolder(), "name.yml");
-    YamlConfiguration config = YamlConfiguration.loadConfiguration(files);
     try {
         file.save(cfg);
     } catch (IOException e) {
