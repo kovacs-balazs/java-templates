@@ -4,7 +4,7 @@ private static FileConfiguration file;
 public static Main m = Main.getPlugin(Main.class);
 
 public static void setup() {
-    cfg = new File(m.getDataFolder(), "name.yml"); //
+    cfg = new File(m.getDataFolder(), "file.yml"); //
     if(!cfg.exists()) {
         try {
             cfg.createNewFile();
@@ -15,11 +15,11 @@ public static void setup() {
     file = YamlConfiguration.loadConfiguration(cfg);
 }
 
-public static FileConfiguration getName() {
+public static FileConfiguration get() {
     return file;
 }
 
-public static void saveName() {
+public static void save() {
     try {
         file.save(cfg);
     } catch (IOException e) {
@@ -27,6 +27,6 @@ public static void saveName() {
     }
 }
 
-public static void reloadName() {
+public static void reload() {
     file = YamlConfiguration.loadConfiguration(cfg);
 }
