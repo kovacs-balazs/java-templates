@@ -1,11 +1,16 @@
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-jar-plugin</artifactId> <!-- Ez kell -->
-    <!-- <version>2.3</version> -->
-    <configuration>
-        <!-- <source>${java.version}</source>
-        <target>${java.version}</target> -->
-        <outputDirectory>C:\Users\kille\Desktop\TsipuEgymeleg\plugins</outputDirectory>  <!-- Ez kell -->
-    </configuration>
-</plugin>
+<build>
+    <finalName>Plugin name</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId> <!-- Ez kell -->
+            <!-- <version>2.3</version> -->
+            <configuration>
+                <!-- <source>${java.version}</source>
+                <target>${java.version}</target> -->
+                <outputDirectory>C:\Users\kille\Desktop\TsipuEgymeleg\plugins</outputDirectory>  <!-- Ez kell -->
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
            
