@@ -1,3 +1,12 @@
+// Importok:
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.IOException;
+
+////////////////// CODE ////////////////
+
 private static File cfg;
 private static FileConfiguration file;
 
