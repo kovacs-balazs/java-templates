@@ -15,11 +15,7 @@ public static Main m = Main.getPlugin(Main.class);
 public static void setup() {
     cfg = new File(m.getDataFolder(), "file.yml"); //
     if(!cfg.exists()) {
-        try {
-            cfg.createNewFile();
-        } catch (IOException e) {
-            // owww
-        }
+        m.saveResource("file.yml", false);
     }
     file = YamlConfiguration.loadConfiguration(cfg);
 }
