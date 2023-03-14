@@ -53,7 +53,7 @@ public interface IItemBuilder {
 
     IItemBuilder setUnbreakable();
 
-    default void addFlag(@NotNull ItemFlag... flags) {
+    default IItemBuilder addFlag(@NotNull ItemFlag... flags) {
         Arrays.stream(flags).forEach(this::addFlag);
     }
 
@@ -151,7 +151,7 @@ class IIItemBuilder implements IItemBuilder {
 
     @Override
     public IItemBuilder setLore(@NotNull List<String> lore) {
-        is.setLore(lore);
+        meta.setLore(lore);
         return this;
     }
 
