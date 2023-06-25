@@ -43,6 +43,9 @@ public class ConfigItem {
             for (String s : (List<String>) map.get("enchantments")) {
                 String[] tags = s.split(";");
                 Enchantment enc = Enchantment.getByKey(NamespacedKey.minecraft(tags[0].toLowerCase()));
+                if(enc == null) {
+                    enc = EnchantmentWrapper.getByName(tags[0].toUpperCase());
+                }
                 int level = tags[1].matches("^[0-9]+$") ? Integer.parseInt(tags[1]) : 0;
                 enchants.put(enc, level);
             }
