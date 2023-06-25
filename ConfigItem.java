@@ -14,8 +14,8 @@ import java.util.List;
 
 public class ConfigItem {
 
-    public static ItemStack getItem(String configName, FileConfiguration config, ConfigurationSection configSection) {
-        HashMap<String, Object> map = getMap(configName, config, configSection);
+    public static ItemStack getItem(FileConfiguration config, ConfigurationSection configSection) {
+        HashMap<String, Object> map = getMap(config, configSection);
         Material material = Material.getMaterial(map.get("material") + "");
         String base64 = (String) map.get("base64");
         String displayName = ChatColor.translateAlternateColorCodes('&', String.valueOf(map.get("display_name")));
@@ -151,10 +151,10 @@ public class ConfigItem {
                 Integer.valueOf(colorStr.substring(5, 7), 16));
     }
 
-    public static HashMap<String, Object> getMap(String configName, FileConfiguration config, ConfigurationSection configSection) {
+    public static HashMap<String, Object> getMap(FileConfiguration config, ConfigurationSection configSection) {
         HashMap<String, Object> hashMap = baseValues();
         for (String key : configSection.getKeys(false)) {
-            hashMap.put(key, config.get(configName + "." + key));
+            hashMap.put(key, config.get(configSection.getName() + "." + key));
         }
         return hashMap;
     }
