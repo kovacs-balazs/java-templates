@@ -70,7 +70,7 @@ public class ConfigItem {
         }
 
         Color color = null;
-        if(map.containsKey("leather_armor_color")) {
+        if(map.get("leather_armor_color") != null) {
             String armorColor = String.valueOf(map.get("leather_armor_color"));
             if(armorColor.startsWith("#"))
                 color = hex2Rgb(armorColor);
@@ -87,8 +87,10 @@ public class ConfigItem {
             SkullMeta skull = (SkullMeta) is.getItemMeta();
             if(base64 == null) {
                 String skullName = (String) map.get("skull_owner");
-                skull.setOwningPlayer(Bukkit.getOfflinePlayer(skullName));
-                is.setItemMeta(skull);
+                if(skullName != null) {
+                    skull.setOwningPlayer(Bukkit.getOfflinePlayer(skullName));
+                    is.setItemMeta(skull);
+                }
             } else {
                 is = SkullCreator.itemFromBase64(base64);
                 is.setAmount(amount);
