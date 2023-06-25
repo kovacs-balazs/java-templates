@@ -1,3 +1,12 @@
+// Maven
+<dependency>
+    <groupId>com.mojang</groupId>
+    <artifactId>authlib</artifactId>
+    <version>3.11.50</version>
+    <scope>provided</scope>
+</dependency>
+
+
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import org.bukkit.Material;
