@@ -12,37 +12,21 @@ private static File cfg;
 private static FileConfiguration file;
 
 private static ConfigFile config;
-private final File folder;
-private final String fileName;
+private final File ymlFile;
 
-public ConfigFile(String folder, String fileName) {
+public GuiItemsFile(String ymlFile) {
     config = this;
-    this.folder = new File(m.getDataFolder(), folder);
-    if(!this.folder.exists())
-        this.folder.mkdir();
-
-    this.fileName = fileName;
-    setup();
-}
-
-public ConfigFile(String fileName) {
-    config = this;
-    this.fileName = fileName;
-    this.folder = null;
+    this.ymlFile = new File(m.getDataFolder(), ymlFile);
     setup();
 }
 
 public void setup() {
-    String filePath = this.folder != null ? this.folder.getName() + "\\" + this.fileName : this.fileName;
-    cfg = new File(m.getDataFolder(), filePath);
+    cfg = ymlFile;
     if (!cfg.exists()) {
         try {
-            if(this.folder == null) {
-                m.saveResource(this.fileName, false);
-                return;
-            }
-            cfg.createNewFile();
-            InputStream in = m.getResource(this.fileName);
+            ymlFile.getParentFile().mkdirs();
+            ymlFile.createNewFile();
+            InputStream in = m.getResource(ymlFile.getName());
             FileOutputStream out = new FileOutputStream(cfg);
 
             if(in == null) return;
