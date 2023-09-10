@@ -1,10 +1,10 @@
-// IMPORTOK
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.time.DurationFormatUtils;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -129,5 +129,15 @@ public class Formatter {
             matcher = hexPattern.matcher(message);
         }
         return ChatColor.translateAlternateColorCodes('&', message);
+    }
+
+
+
+    public static FormatterUtils format(String string) {
+        return new FormatterUtils(string);
+    }
+
+    public static FormatterUtils format(List<String> list) {
+        return new FormatterUtils(list);
     }
 }
