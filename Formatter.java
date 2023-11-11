@@ -137,6 +137,32 @@ public class Formatter {
         return new FormatterUtils(string);
     }
 
+    public static ItemStack format(Player player, ItemStack is) {
+        ItemStack clone = is.clone();
+        ItemMeta im = clone.getItemMeta();
+        if(im.hasDisplayName()) {
+            String dpName = im.getDisplayName();
+            String newDpName = Formatter.format(dpName)
+                    .papi(player)
+                    .applyColor()
+                    .string();
+    
+            im.setDisplayName(newDpName);
+        }
+        if(im.hasLore()) {
+            List<String> currentLore = im.getLore();
+            List<String> newLore = Formatter.format(currentLore)
+                    .papi(player)
+                    .applyColor()
+                    .list();
+    
+            im.setLore(newLore);
+        }
+    
+        clone.setItemMeta(im);
+        return clone;
+    }
+    
     public static FormatterUtils format(List<String> list) {
         return new FormatterUtils(list);
     }
